@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>CRUD-Itineraries</title>
+    <link rel="stylesheet" href="crud.css">
+  </head>
+  <body>
+    <!-- Main Content -->
+     <header>
+        <button class="home-button" onclick="window.location.href='index.html'">
+            <img src="logo.png" alt="Back Icon" style="width:10%; height:10%;">
+        </button>    
+        <h1>World Explorer</h1>
+        </div>
+    </header>
+    <div class="container1">
+        <div class="dropdown-Menu" id="dropdownMenu">
+          <div class="dropdown1" onclick="toggleMenu()">
+            <div class="hamburger-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="drop-nav">
+            <a href="index.html">Home</a>
+            <a href="countryInfo.html">World Search</a>
+            <a href="map.html">World Map</a>
+            <a href="crud.html">Travel Itineraries</a>
+          </div>
+        </div>
+    </div>
+    <section class="p-3">
+        <div class="row">
+            <div class="col-12">
+                <button class="btn btn-primary newUser" data-bs-toggle="modal" data-bs-target="#userForm">New Itineraries </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped table-hover mt-3 text-center table-bordered">
+                    <thead>
+                        <tr>
+                            <th>List</th>
+                            <th>Country</th>
+                            <th>Region</th>
+                            <th>Capital City</th>
+                            <th>Timezones</th>
+                            <th>Languages</th>
+                            <th>Start Date</th>
+                            <th>Items</th>
+                            <th>Budget</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data"></tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!--Modal Form-->
+    <div class="modal fade" id="userForm">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Fill the Form</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="myForm">
+                        <!-- Country Flag Selector -->
+                        <div class="card imgholder">
+                            <div id="countrySelector" class="country-selector">
+                                <img src="./image/Profile Icon.webp" alt="Country Flag" width="200" height="200" class="img" id="flagImg">
+                                <div class="country-search">
+                                    <input type="text" id="countrySearch" placeholder="Search countries..." class="form-control">
+                                    <div id="countryList" class="country-list d-none"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inputField">
+                            <div>
+                                <label for="Region">Region:</label>
+                                <input type="text" name="" id="Region" required>
+                            </div>
+                            <div>
+                                <label for="CapitalCity">Capital City:</label>
+                                <input type="text" name="" id="CapitalCity" required>
+                            </div>
+                            <div>
+                                <label for="Timezones">Timezones:</label>
+                                <input type="text" name="" id="Timezones" required>
+                            </div>
+                            <div>
+                                <label for="Languages">Languages:</label>
+                                <input type="text" name="" id="Languages" required>
+                            </div>
+                            <div>
+                                <label for="sDate">Start Date:</label>
+                                <input type="date" name="" id="sDate" required>
+                            </div>
+                            <div>
+                                <label for="Items">Items:</label>
+                                <input type="text" name="" id="Items" required>
+                            </div>
+                            <div>
+                                <label for="Budget">Budget:</label>
+                                <input type="text" name="" id="Budget" required>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" form="myForm" class="btn btn-primary submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Read Data Modal-->
+    <div class="modal fade" id="readData">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Profile</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="myForm">
+                        <div class="card imgholder">
+                            <img src="./image/Profile Icon.webp" alt="Profile Picture" width="200" height="200" class="showImg">
+                        </div>
+                        <div class="inputField">
+                            <div>
+                                <label for="showRegion">Region:</label>
+                                <input type="text" id="showRegion" disabled>
+                            </div>
+                            <div>
+                                <label for="showCapitalCity">Capital City:</label>
+                                <input type="text" id="showCapitalCity" disabled>
+                            </div>
+                            <div>
+                                <label for="showTimezones">Timezones:</label>
+                                <input type="text" id="showTimezones" disabled>
+                            </div>
+                            <div>
+                                <label for="showLanguages">Languages:</label>
+                                <input type="text" id="showLanguages" disabled>
+                            </div>
+                            <div>
+                                <label for="showsDate">Start Date:</label>
+                                <input type="date" id="showsDate" disabled>
+                            </div>
+                            <div>
+                                <label for="showItems">Items:</label>
+                                <input type="text" id="showItems" disabled>
+                            </div>
+                            <div>
+                                <label for="showBudget">Budget:</label>
+                                <input type="text" id="showBudget" disabled>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="crud.js"></script>
+  </body>
+</html>

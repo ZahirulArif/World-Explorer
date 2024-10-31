@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <title>World Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="container">
+      <button class="home-button" onclick="window.location.href='index.html'">
+        <img src="logo.png" alt="Back Icon" style="width:10%; height:10%;">
+      </button>    
+      <h1>World Explorer</h1>
+    </div>
+
+    <div class="container1">
+      <div class="dropdown-Menu" id="dropdownMenu">
+        <div class="dropdown1" onclick="toggleMenu()">
+          <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="drop-nav">
+          <a href="index.html">Home</a>
+          <a href="countryInfo.html">World Search</a>
+          <a href="map.html">World Map</a>
+          <a href="crud.html">Travel Itineraries</a>
+        </div>
+      </div>
+
+      <div class="controls">
+        <i class="bx bx-search"></i>
+        <input type="search" placeholder="Search the country" class="search">
+      </div>
+    
+      <div class="dropdownMenu">
+        <div class="dropdown">
+          <p>Filter by Region</p>
+          <i class="bx bx-chevron-down"></i>
+        </div>
+      
+        <div class="drop-options">
+          <p class="regions">All</p>
+          <p class="regions">Africa</p>
+          <p class="regions">Americas</p>
+          <p class="regions">Asia</p>
+          <p class="regions">Europe</p>
+          <p class="regions">Oceania</p>
+          <p class="regions">Antarctic</p>
+        </div>
+      </div>
+    </div>
+    <div class="countries">
+    </div>
+  </div>
+  <!-- Script -->
+  <script src="app.js"></script>
+</body>
+</html>

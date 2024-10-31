@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Map Explorer</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    :root {
+    --bg-color: rgb(245, 254, 192);
+    --font-color: rgb(43, 43, 43);
+    font-family: 'Nunito Sans', sans-serif;
+    }
+
+    body {
+    background-color: var(--bg-color);
+    color: var(--font-color);
+    }
+
+    header {
+        background-color: #f7f7f7;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 10px; /* Adjusted padding to shift everything to the left */
+        align-items: center;
+    }
+    
+    header h1 {
+        margin-right: 60%; /* Bring the h1 closer to the button */
+        flex: 1;
+    }
+    
+    .home-button {
+        margin-right: -12%; /* Reduced margin to bring it closer to the h1 */
+        margin-left: -14%;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
+        cursor: pointer;
+        background: none;
+        padding: 10px;
+    }
+
+    .container1{
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        align-items: center;
+    }
+
+    .hamburger-menu {
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+    }
+    
+    .hamburger-menu span {
+        display: block;
+        height: 4px;
+        background-color: black;
+        border-radius: 2px;
+    }
+    
+    .dropdown-Menu {
+        position: relative;
+        width: 200px;
+    }
+    
+    .dropdown1 {
+        display: flex;
+        justify-content: space-between;
+        padding: 18px 20px;
+    }
+    
+    .drop-nav {
+        display: none;
+        position: absolute;
+        width: 200px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        background-color: var(--bg-color);
+        padding: 15px 20px;
+        margin-top: 15px;
+        border-radius: 5px;
+        z-index: 1000;
+    }
+    
+    .drop-nav a {
+        display: block;
+        padding: 8px 0;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .dropdown-Menu.active .drop-nav {
+        display: block;
+    }
+
+    #map {
+        width: 100%;
+        height: 90vh;
+    }
+    .controls {
+        background-color: #f7f7f7;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        box-shadow: 0 0 25px rgba(50, 47, 52, 0.4);
+        padding: 18px 20px;
+        border-radius: 5px;
+        margin-right: 30%;
+    }
+    .controls input {
+        outline: none;
+        border: none;
+        width: 600px;
+        background: none;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <button class="home-button" onclick="window.location.href='index.html'">
+            <img src="logo.png" alt="Back Icon" style="width:10%; height:10%;">
+        </button>    
+        <h1>World Explorer</h1>
+        </div>
+    </header>
+    <div class="container1">
+        <div class="dropdown-Menu" id="dropdownMenu">
+          <div class="dropdown1" onclick="toggleMenu()">
+            <div class="hamburger-menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+          <div class="drop-nav">
+            <a href="index.html">Home</a>
+            <a href="countryInfo.html">World Search</a>
+            <a href="map.html">World Map</a>
+            <a href="crud.html">Travel Itineraries</a>
+          </div>
+        </div>
+        <!-- Search Bar -->
+        <div class="controls">
+            <i class="bx bx-search"></i>
+            <input type="text" id="countrySearch" placeholder="Search for a country..." oninput="searchCountry()">
+        </div>
+    </div>
+    <!-- Map Container -->
+    <div id="map" style="width: 100%; height: 600px;"></div>
+
+  <!-- Script for the map and search functionality -->
+  <script src="map.js"></script>
+</body>
+</html>
